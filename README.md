@@ -1,2 +1,3 @@
 # github-actions-nested-workflows
-GHA bug showcase
+GHA peculiarity showcase
+https://github.com/orgs/community/discussions/32023
