@@ -29,3 +29,12 @@ jobs:
     uses: ./.github/workflows/A.yml
     with:
       matrix-input: ${{ needs.matrix-gen.outputs.output-matrix }}
+
+  call-B-from-main:
+    uses: ./.github/workflows/B.yml
+    needs:
+      - matrix-gen
+    strategy:
+      matrix: ${{ fromJson(needs.matrix-gen.outputs.output-matrix) }}
+    with:
+      value: ${{ matrix.key }}
