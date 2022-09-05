@@ -1,0 +1,22 @@
+name: main workflow
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  matrix-gen:
+    name: generate matrix
+    runs-on: ubuntu-latest
+    outputs:
+      output-matrix: ${{ steps.generate.outputs.output-matrix }}
+    steps:
+      - run: |
+          echo -n "::set-output name=output-matrix::'{"include": [{"key": "value1", "key": "value2"}]}'"
+  
+  call-A:
+    needs:
+      - matrix-gen
+    uses: ./.github/workflows/A.yml
+    with:
+      - matrix-input: ${{ needs.matrix-gen.outputs.output-matrix }}

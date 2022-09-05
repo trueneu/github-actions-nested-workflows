@@ -1,0 +1,17 @@
+name: reusable workflow A
+on:
+  workflow_call:
+    inputs:
+      matrix-input:
+        type: string
+        required: true
+
+jobs:
+  debug-output:
+    name: debug output
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJson(inputs.matrix-input) }}
+    steps:
+      - run: |
+          echo '${{ matrix.key }}'
