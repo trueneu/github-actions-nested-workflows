@@ -12,7 +12,7 @@ jobs:
       output-matrix: ${{ steps.generate.outputs.output-matrix }}
     steps:
       - run: |
-          echo -n "::set-output name=output-matrix::'{\"include\": [{\"key\": \"value1\"}, {\"key\": \"value2\"}]}'"
+          echo -n "::set-output name=output-matrix::{\"include\": [{\"key\": \"value1\"}, {\"key\": \"value2\"}]}"
         id: generate
 
   debug-output:
