@@ -13,6 +13,7 @@ jobs:
     steps:
       - run: |
           echo -n "::set-output name=output-matrix::'{\"include\": [{\"key\": \"value1\", \"key\": \"value2\"}]}'"
+        id: generate
 
   debug-output:
     runs-on: ubuntu-latest
