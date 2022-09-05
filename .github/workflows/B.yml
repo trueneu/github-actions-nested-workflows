@@ -1,4 +1,4 @@
-name: reusable workflow A
+name: reusable workflow B
 on:
   workflow_call:
     inputs:
@@ -15,9 +15,3 @@ jobs:
     steps:
       - run: |
           echo '${{ matrix.key }}'
-
-  call-B:
-    uses: ./.github/workflows/B.yml
-    with:
-      matrix-input: ${{ inputs.matrix-input }}
-
