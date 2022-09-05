@@ -13,7 +13,15 @@ jobs:
     steps:
       - run: |
           echo -n "::set-output name=output-matrix::'{\"include\": [{\"key\": \"value1\", \"key\": \"value2\"}]}'"
-  
+
+  debug-output:
+    runs-on: ubuntu-latest
+    needs:
+      - matrix-gen
+    steps:
+      - run: |
+          echo ${{ needs.matrix-gen.outputs.output-matrix }}
+
   call-A:
     needs:
       - matrix-gen
