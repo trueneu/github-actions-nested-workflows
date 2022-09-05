@@ -18,6 +18,8 @@ jobs:
 
   call-B:
     uses: ./.github/workflows/B.yml
+    strategy:
+      matrix: ${{ fromJson(inputs.matrix-input) }}
     with:
-      matrix-input: ${{ inputs.matrix-input }}
+      value: ${{ matrix.key }}
 
