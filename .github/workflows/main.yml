@@ -19,4 +19,4 @@ jobs:
       - matrix-gen
     uses: ./.github/workflows/A.yml
     with:
-      - matrix-input: ${{ needs.matrix-gen.outputs.output-matrix }}
+      matrix-input: ${{ needs.matrix-gen.outputs.output-matrix }}
